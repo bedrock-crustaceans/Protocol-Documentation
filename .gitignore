@@ -1,4 +1,4 @@
-docs/.vitepress/dist
-docs/.vitepress/cache
+.vitepress/dist
+.vitepress/cache
 node_modules/
 package-lock.json
