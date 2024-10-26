@@ -15,6 +15,7 @@ The server should respond with an unconnected pong with the following format:<br
 &nbsp;&nbsp;&nbsp;&nbsp;packet id: 0x1C (byte)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;time: 8 bytes (uint64)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;server guid: 8 bytes (uint64)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;magic OfflineMessageID: 0x00, 0xFF, 0xFF, 0x00, 0xFE, 0xFE, 0xFE, 0xFE, 0xFD, 0xFD, 0xFD, 0xFD, 0x12, 0x34, 0x56, 0x78 (16 bytes)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MOTD length: 2 bytes (uint16)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MOTD: string<br>
 
