@@ -7,7 +7,6 @@ export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
   title: "Bedrock Protocol Wiki",
   description: "Documentation for the Bedrock Protocol",
-  srcDir: '/src',
   //base: '/vitepress-carbon-template/', if running on github-pages, set repository name here
 
   themeConfig: {
