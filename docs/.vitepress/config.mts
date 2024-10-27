@@ -2,6 +2,8 @@ import { defineConfigWithTheme } from "vitepress"
 import type { ThemeConfig } from "vitepress-carbon"
 import baseConfig from "vitepress-carbon/config"
 
+import { getSidebar } from "./sidebar/sections.mjs";
+
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme<ThemeConfig>({
     extends: baseConfig,
@@ -30,15 +32,7 @@ export default defineConfigWithTheme<ThemeConfig>({
             provider: "local"
         },
 
-        sidebar: [
-            {
-                text: "RakNet",
-                items: [
-                    { text: "Markdown Examples", link: "/markdown-examples" },
-                    { text: "Runtime API Examples", link: "/api-examples" }
-                ]
-            }
-        ],
+        sidebar: getSidebar(),
 
         socialLinks: [
             {
