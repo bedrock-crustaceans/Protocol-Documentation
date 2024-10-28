@@ -2,7 +2,7 @@
 
 ## Overview
 
-The server operates by listening on port `19132` for incoming RakNet unconnected pings. Upon receiving a valid ping, the server responds with an unconnected pong that contains the MOTD and other info. This interaction ensures that clients receive essential details about the server before establishing a connection.
+A RakNet server, by default, listens on port `19132` for incoming [Unconnected Pings](#unconnected-ping). Once a valid ping is sent, the server sends back a [Unconnected Pong](#unconnected-pong). This contains the server's (MOTD)[#motd-format), along with other server info. All this ensures that a client receives the details of the server before a connection is established.
 
 ## Packet Structure
 
