@@ -5,10 +5,7 @@
         "preview": "vitepress preview docs"
     },
     "dependencies": {
-        "vitepress-carbon": "^1.4.5",
-        "vitepress": "^1.4.0"
-    },
-    "devDependencies": {
-        "pnpm": "^9.12.2"
+        "vitepress": "^1.4.1",
+        "vitepress-sidebar": "^1.28.0"
     }
 }

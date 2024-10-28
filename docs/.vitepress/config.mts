@@ -1,48 +1,32 @@
-import { defineConfigWithTheme } from "vitepress"
-import type { ThemeConfig } from "vitepress-carbon"
-import baseConfig from "vitepress-carbon/config"
-
-import { getSidebar } from "./sidebar/sections.mjs";
+import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar';
 
 // https://vitepress.dev/reference/site-config
-export default defineConfigWithTheme<ThemeConfig>({
-    extends: baseConfig,
+export default defineConfig({
     title: "Bedrock Protocol Wiki",
-    description: "Documentation for the Bedrock Protocol",
-    //base: "/vitepress-carbon-template/", if running on github-pages, set repository name here
+    description: "Documentation of the Bedrock Protocol",
 
     themeConfig: {
-        // https://vitepress.dev/reference/default-theme-config
-        nav: [
-            {
-                text: "Discord",
-                link: "https://discord.gg/7jHNuwb29X",
-            },
-            {
-                text: "Contribute",
-                link: "/contribute",
-            },
-            {
-                text: "bedrock wiki",
-                link: "https://wiki.bedrock.dev",
-            },
-        ],
+        sidebar: generateSidebar({
+            documentRootPath: "docs/",
+            collapsed: true,
+            capitalizeEachWords: true,
+            debugPrint: true,
+        }),
 
         search: {
-            provider: "local"
+            provider: 'local'
         },
-
-        sidebar: getSidebar(),
 
         socialLinks: [
             {
-                icon: "github",
-                link: "https://github.com/bedrock-crustaceans/protocol-wiki"
+                "icon": "github",
+                "link": "https://github.com/bedrock-crustaceans/protocol-wiki"
             },
             {
-                icon: "discord",
-                link: "https://discord.gg/7jHNuwb29X",
+                "icon": "discord",
+                "link": "https://discord.gg/7jHNuwb29X"
             }
         ]
-    }
+    },
 })

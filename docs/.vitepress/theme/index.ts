@@ -1,5 +1,17 @@
-import { VPCarbon } from 'vitepress-carbon'
+// https://vitepress.dev/guide/custom-theme
+import { h } from 'vue'
+import type { Theme } from 'vitepress'
+import DefaultTheme from "vitepress/theme"
+import './style.css'
 
-// uncomment to test CSS variables override
-// import './override.css'
-export default VPCarbon
+export default {
+    extends: DefaultTheme,
+    Layout: () => {
+        return h(DefaultTheme.Layout, null, {
+            // https://vitepress.dev/guide/extending-default-theme#layout-slots
+        })
+    },
+    enhanceApp({ app, router, siteData }) {
+
+    }
+} satisfies Theme
