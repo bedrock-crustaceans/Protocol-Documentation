@@ -6,7 +6,10 @@ export default defineConfig({
     title: "Bedrock Protocol Wiki",
     description: "Documentation of the Bedrock Protocol",
 
+    // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
+        logo: ".assets/logo.png",
+
         sidebar: generateSidebar({
             documentRootPath: "docs/",
             collapsed: true,
@@ -17,6 +20,21 @@ export default defineConfig({
         search: {
             provider: 'local'
         },
+
+        nav: [
+            {
+                text: "Contribute",
+                link: "/about/contribute",
+            },
+            {
+                text: "Discord",
+                link: "https://discord.gg/7jHNuwb29X",
+            },
+            {
+                text: "Bedrock Wiki",
+                link: "https://wiki.bedrock.dev",
+            },
+        ],
 
         socialLinks: [
             {
