@@ -1,8 +1,8 @@
-# MOTD Protocol Documentation
+# Message of the Day (MOTD) Protocol Documentation
 
 ## Overview
 
-A RakNet server, by default, listens on port `19132` for incoming [Unconnected Pings](#unconnected-ping). Once a valid ping is sent, the server sends back a [Unconnected Pong](#unconnected-pong). This contains the server's (MOTD)[#motd-format), along with other server info. All this ensures that a client receives the details of the server before a connection is established.
+A RakNet server, by default, listens on port `19132` for incoming [Unconnected Pings](#unconnected-ping). Once a valid ping is sent, the server sends back a [Unconnected Pong](#unconnected-pong). This contains the server's [MOTD](#motd-format), along with other server info. All this ensures that a client receives the details of the server before a connection is established.
 
 ## Packet Structure
 
@@ -47,7 +47,7 @@ In response to a valid unconnected ping, the server dispatches an unconnected po
 - **MOTD Length (2 bytes, Big-Endian):** Specifies the length of the MOTD string.
 - **MOTD (Variable Length):** The actual Message of the Day in byte format.
 
-## Message of the Day (MOTD) Generation
+## MOTD Generation
 
 The MOTD is what shows up in the server list, it is what people see before joining the server.
 
@@ -61,7 +61,7 @@ The MOTD follows a semicolon-separated (`;`) format comprising various fields, s
 #### Field Breakdown & Data Types
 
 - **Edition:** string  
-  Specifies the game edition (e.g., `MCPE` for Minecraft Pocket Edition), seems to be hardcoded to `MCPE`
+  Specifies the game edition (e.g., `MCPE` for Minecraft Pocket Edition or `MCEE` for Minecraft Education Edition). Both seem to work with windows minecraft.
 - **MOTD:** string  
   The actual message that is displayed, it can have Minecraft colors.  
 - **Protocol Version:** uint16  
@@ -88,7 +88,7 @@ The MOTD follows a semicolon-separated (`;`) format comprising various fields, s
   Ends with `0` to signify the conclusion of the MOTD string.  
 
 ## Code Examples
-
+::: details Code Examples
 ::: code-group
 
 ```rust [src/main.rs]
@@ -244,64 +244,64 @@ fn main() {
 let MAGIC_OFFLINE_MESSAGE_ID = new Buffer([0x00, 0xFF, 0xFF, 0x00, 0xFE, 0xFE, 0xFE, 0xFE, 0xFD, 0xFD, 0xFD, 0xFD, 0x12, 0x34, 0x56, 0x78]);
 
 function genMotd(serverGuid: number, listenPort: number) {
-	let edition = "MCPE";
-	let motd = "Welcome to my Minecraft server!";
-	let protocolVersion = "748";
-	let version = "1.20.40";
-	let playerCount = "10";
-	let maxPlayerCount = "100";
-	let worldName = "world";
-	let gamemode = "Survival";
-	let nintendoLimited = "1";
-	let port = listenPort.toString();
-	let guid = serverGuid.toString();
+  let edition = "MCPE";
+  let motd = "Welcome to my Minecraft server!";
+  let protocolVersion = "748";
+  let version = "1.20.40";
+  let playerCount = "10";
+  let maxPlayerCount = "100";
+  let worldName = "world";
+  let gamemode = "Survival";
+  let nintendoLimited = "1";
+  let port = listenPort.toString();
+  let guid = serverGuid.toString();
 
-	let order = [
-		edition,
-		motd,
-		protocolVersion,
-		version,
-		playerCount,
-		maxPlayerCount,
-		guid,
-		worldName,
-		gamemode,
-		nintendoLimited,
-		port,
-		port,
-		"0;",
-	];
+  let order = [
+    edition,
+    motd,
+    protocolVersion,
+    version,
+    playerCount,
+    maxPlayerCount,
+    guid,
+    worldName,
+    gamemode,
+    nintendoLimited,
+    port,
+    port,
+    "0;",
+  ];
 
-	return order.join(";");
+  return order.join(";");
 }
 
 function checkValidPing(buf: Buffer, size: number) {
-	if (size !== 33) {
-		return false;
-	}
+  if (size !== 33) {
+    return false;
+  }
 
-	if (buf[0] !== 0x01) {
-		return false;
-	}
+  if (buf[0] !== 0x01) {
+    return false;
+  }
 
-	let time = buf.subarray(1, 9);
-	time = time.readBigUInt64BE();
-
-
-	let magicOfflineMessageId = buf.subarray(9, 25);
-	if (!magicOfflineMessageId.equals(MAGIC_OFFLINE_MESSAGE_ID)) {
-		return false;
-	}
-
-	let guid = buf.subarray(25, 33);
-	guid = guid.readBigUInt64BE();
+  let time = buf.subarray(1, 9);
+  time = time.readBigUInt64BE();
 
 
-	return true;
+  let magicOfflineMessageId = buf.subarray(9, 25);
+  if (!magicOfflineMessageId.equals(MAGIC_OFFLINE_MESSAGE_ID)) {
+    return false;
+  }
+
+  let guid = buf.subarray(25, 33);
+  guid = guid.readBigUInt64BE();
+
+
+  return true;
 }
 
 function writePong(serverGuid: number, motd: string) {
-	const currentTime = BigInt(Math.floor(Date.now() / 1000)); // Current time in seconds
+  const currentTime = BigInt(Math.floor(Date.now() / 1000)); // Current time in seconds
 
     const response = Buffer.alloc(1 + 8 + 8 + MAGIC_OFFLINE_MESSAGE_ID.length + 2 + motd.length);
     
@@ -331,32 +331,34 @@ function writePong(serverGuid: number, motd: string) {
 }
 
 function listen(listenPort: number) {
-	let socket = Bun.udpSocket({
-		port: listenPort,
-		socket: {
-			data: (socket, buf, port, addr) => {
-				let serverGuid = 1234567890123456789;
+  let socket = Bun.udpSocket({
+    port: listenPort,
+    socket: {
+      data: (socket, buf, port, addr) => {
+        let serverGuid = 1234567890123456789;
 
-				if (!checkValidPing(buf, buf.length)) {
-					console.log("Received invalid ping");
-					return;
-				}
+        if (!checkValidPing(buf, buf.length)) {
+          console.log("Received invalid ping");
+          return;
+        }
 
-				let motd = genMotd(serverGuid, listenPort);
-				let response = writePong(serverGuid, motd);
+        let motd = genMotd(serverGuid, listenPort);
+        let response = writePong(serverGuid, motd);
 
-				socket.send(response, port, addr);
-			},
-		},
-	});
+        socket.send(response, port, addr);
+      },
+    },
+  });
 }
 
 listen(19132);
 ```
+:::
 ## Sources
 - [Go Raknet](https://github.com/Sandertv/go-raknet/blob/master/internal/message/unconnected_ping.go#L8)<br>
 - [PHP MC Query](https://github.com/xPaw/PHP-Minecraft-Query/blob/master/src/MinecraftQuery.php#L212)<br>
 - [Raknet](https://github.com/facebookarchive/RakNet/blob/1a169895a900c9fc4841c556e16514182b75faf8/Source/RakPeer.cpp#L135)<br>
 - [Phantom](https://github.com/jhead/phantom/blob/44056d83afbfe60b253faff01308d171ac21e8d6/internal/proto/proto.go#L23)<br>
 - [Geyser](https://github.com/GeyserMC/Protocol/blob/46b4ad37b159b1fc59e45871f7572101f5ed43ab/bedrock-connection/src/main/java/org/cloudburstmc/protocol/bedrock/BedrockPong.java#L23)<br>
+- [Wiki.vg](https://wiki.vg/Raknet_Protocol#Unconnected_Ping)<br>
 - Wireshark 
