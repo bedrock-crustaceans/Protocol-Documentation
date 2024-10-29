@@ -9,7 +9,7 @@ export default defineConfig({
 
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
-        logo: "assets/logo.png",
+        logo: "/assets/logo.png",
 
         sidebar: generateSidebar({
             documentRootPath: "docs/",
@@ -47,7 +47,7 @@ export default defineConfig({
             }
         ],
 
-        head: [["link", { rel: "icon", href: "/protocol-wiki/assets/logo.ico" }]],
+        head: [["link", { rel: "icon", href: "/protocol-wiki/assets/favicon.ico" }]],
 
         footer: {
             message: "Released under the Apache-2.0 License.",
