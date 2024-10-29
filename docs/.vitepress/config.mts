@@ -5,7 +5,6 @@ import { generateSidebar } from 'vitepress-sidebar';
 export default defineConfig({
     title: "Bedrock Protocol Wiki",
     description: "Documentation of the Bedrock Protocol",
-    base: "protocol-wiki/",
 
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
