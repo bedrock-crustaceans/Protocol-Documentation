@@ -9,12 +9,13 @@ export default defineConfig({
 
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
-        logo: "/protocol-wiki/assets/logo.png",
+        logo: "/assets/logo.png",
 
         sidebar: generateSidebar({
             documentRootPath: "docs/",
             collapsed: true,
             capitalizeEachWords: true,
+            excludePattern: [ "assets/" ]
         }),
 
         search: {
