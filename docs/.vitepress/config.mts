@@ -9,13 +9,13 @@ export default defineConfig({
 
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
-        logo: "/assets/logo.png",
+        logo: "/logo.png",
 
         sidebar: generateSidebar({
             documentRootPath: "docs/",
             collapsed: true,
             capitalizeEachWords: true,
-            excludePattern: [ "assets/" ]
+            excludePattern: [ "public/" ]
         }),
 
         search: {
@@ -47,8 +47,6 @@ export default defineConfig({
                 "link": "https://discord.gg/7jHNuwb29X"
             }
         ],
-
-        head: [["link", { rel: "icon", type: 'image/x-icon', href: "/protocol-wiki/assets/logo.ico" }]],
 
         footer: {
             message: "Released under the Apache-2.0 License.",
