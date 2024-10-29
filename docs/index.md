@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Bedrock'
   text: 'Protocol Wiki'
-  tagline: 'The entire Bedrock Protocol and more, all documented in one place!'
+  tagline: "The entirety of MInecraft Bedrock's Protocol! All documented in one place!"
   actions:
     - theme: brand
       text: Start here!
@@ -22,13 +22,13 @@ features:
     icon: ⚙️
     # Un-sure on the best way to word this/explain it.
     details: The Bedrock Protocol is the Minecraft's protocol, the packets and data sent to and from clients.
-    link: /bedrock
+    link: /bedrock/start
   - title: RakNet Protocol
     icon: 🛠️
     details: RakNet Protocol is the transport layer used for pinging and connecting to servers.
-    link: /raknet
+    link: /raknet/start
   - title: NetherNet Protocol
     icon: 🌍
     details: NetherNet Protocol is a new transport layer, mainly used for Xbox Live sessions right now.
-    link: /nethernet
+    link: /nethernet/start
 ---

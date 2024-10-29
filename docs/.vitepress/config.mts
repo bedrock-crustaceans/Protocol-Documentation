@@ -74,7 +74,7 @@ export default defineConfig({
 
         footer: {
             message: 'Not affiliated with Mojang Studios or Microsoft Corporation.',
-            copyright: "Copyright @ 2024-present",
+            copyright: "Released under the Apache-2.0 License. Copyright @ 2024-present",
         }
     },
 })
