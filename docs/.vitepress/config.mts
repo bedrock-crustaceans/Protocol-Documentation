@@ -48,7 +48,7 @@ export default defineConfig({
             }
         ],
 
-        head: [["link", { rel: "icon", href: "/protocol-wiki/favicon.ico" }]],
+        head: [["link", { rel: "icon", type: 'image/x-icon', href: "/protocol-wiki/assets/logo.ico" }]],
 
         footer: {
             message: "Released under the Apache-2.0 License.",
