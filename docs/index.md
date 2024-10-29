@@ -6,13 +6,6 @@ hero:
   name: 'Bedrock'
   text: 'Protocol Wiki'
   tagline: 'The entire Bedrock Protocol and more, all documented in one place!'
-  actions:
-    - theme: brand
-      text: Safe
-    - theme: alt
-      text: Trusted
-    - theme: alt
-      text: Useful
 
 features:
   - title: Bedrock Protocol
