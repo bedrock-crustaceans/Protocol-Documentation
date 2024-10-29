@@ -5,10 +5,11 @@ import { generateSidebar } from 'vitepress-sidebar';
 export default defineConfig({
     title: "Bedrock Protocol Wiki",
     description: "Documentation of the Bedrock Protocol",
+    base: "/protocol-wiki/",
 
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
-        logo: ".assets/logo.png",
+        logo: "assets/logo.png",
 
         sidebar: generateSidebar({
             documentRootPath: "docs/",
@@ -44,6 +45,25 @@ export default defineConfig({
                 "icon": "discord",
                 "link": "https://discord.gg/7jHNuwb29X"
             }
-        ]
+        ],
+
+        head: [["link", { rel: "icon", href: "/protocol-wiki/assets/logo.ico" }]],
+
+        footer: {
+            message: "Released under the Apache-2.0 License.",
+        },
+
+        editLink: {
+            pattern: "https://github.com/bedrock-crustaceans/protocol-wiki/tree/main/docs/:path",
+            text: "Edit this page on GitHub",
+        },
+
+        lastUpdated: {
+            text: "Last updated at",
+            formatOptions: {
+                dateStyle: "medium",
+                timeStyle: "medium",
+            },
+        },
     },
 })
