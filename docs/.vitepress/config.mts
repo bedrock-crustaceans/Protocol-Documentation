@@ -14,7 +14,6 @@ export default defineConfig({
             documentRootPath: "docs/",
             collapsed: true,
             capitalizeEachWords: true,
-            debugPrint: true,
         }),
 
         search: {
