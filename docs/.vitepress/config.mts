@@ -22,6 +22,10 @@ export default defineConfig({
             provider: 'local'
         },
 
+        head: [
+            ['link', { rel: 'icon', type: 'image/x-icon', href: '/protocol-wiki/favicon.ico' }],
+        ],
+
         nav: [
             {
                 text: "Contribute",
