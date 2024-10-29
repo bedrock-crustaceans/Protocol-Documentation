@@ -18,6 +18,6 @@ features:
     link: /raknet
   - title: NetherNet
     icon: 🌍
-    details: NetherNet is brand new, mostly used for Xbox Live Sessions right now.
+    details: NetherNet is brand new, mostly used for Xbox Live Sessions.
     link: /nethernet
 ---
