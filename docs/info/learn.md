@@ -1,3 +1,9 @@
+---
+next:
+    text: 'Learning RakNet'
+    link: '/raknet/start'
+---
+
 # Learning Minecraft Bedrock Protocol
 
 Welcome! We are so glad you decided to learn Minecraft Bedrock protocol!
@@ -8,8 +14,8 @@ Here you can, and will, learn how MCBE protcol works! It all starts with the [Ra
 
 #### What is the difference between RakNet & NetherNet?
 
-RakNet is the base transport layer for most devices. NetherNet is a newer transport layer that is mainly used for Xbox Live sessions.
+RakNet is the base transport layer, uses UDP, and is open source. NetherNet is a newer transport layer that is only used for Xbox Live sessions, uses WebRTC, and is built by Mojang (Which means it's not open source).
 
 #### Is MCBE transfering to NetherNet?
 
-It isn't entirely clear at this moment, but RakNet should still be the main transport layer for a while.
+Not entirely, NetherNet is not meant to (and can't) replace all of RakNet. It is only used for LAN games, and any friend games (Xbox or In-Game) which both use to use RakNet.
