@@ -53,7 +53,7 @@ export default defineConfig({
         nav: [
             {
                 text: "Learn",
-                link: "/learn"
+                link: "/info/learn"
             },
             {
                 text: "Bedrock Wiki",
