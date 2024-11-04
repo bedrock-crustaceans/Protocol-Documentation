@@ -16,7 +16,7 @@ RakNet is a UDP transfer layer. It is mainly used in Minecraft Bedrock, but is u
 
 ## How does RakNet work?
 
-Again, RakNet is a UDP protocol, this means that the [Packets]() that are sent, might not make it always. Things like [Pings]() and [Pongs](), this doesn't matter! But for more important information, we want to make sure the clients(players) get that data. To combat this, RakNet uses [Frame Set]() packets. These split data up if its too big and also keeps track of what data didn't make it to the client and will resend it. This uses [ACK]() & [NACK]() packets which the client sends to either say it got this part of the data or is missing this part of the data.
+Again, RakNet protocol uses UDP, this means that the [Packets]() that are sent, might not always make it. Things like [Pings]() and [Pongs](), this doesn't matter! But for more important information, we want to make sure the clients(players) get that data. To combat this, RakNet uses [Frame Set]() packets. These split data up if its too big and also keeps track of what data didn't make it to the client and will resend it. This uses [ACK]() & [NACK]() packets which the client sends to either say it got this part of the data or is missing this part of the data.
 
 ## Handshake sequence
 
@@ -24,16 +24,19 @@ This is what happens for every client wanting to connect.
 
 ---
 
-* Recieves Pings & Sends Pongs
-* Recieves a [Open Connection Request 1]() & Sends a [Open Connection Reply 1]()
-* Recieves a [Open Connection Request 2]() & Sends a [Open Connection Reply 2]()
+* Clients Ping the server, and the Server sends back Pongs
+* A client would then send a [Open Connection Request 1]()
+* Server responds by sending a [Open Connection Reply 1]()
+* Client sends a [Open Connection Request 2]()
+* Server replys with a [Open Connection Reply 2]()
 
 > [!NOTE]
-> From here, the connection to a client is made and now we start sending packets in [Frame Sets]()
+> From here, the connection is made and now we start sending packets in [Frame Sets]()
 
-* Recieves Connected Pings & Sends Connected Pongs (If stopped we lost connection)
-* Recieves a [Connection Request]() & Sends a [Connection Request Accepted]()
-* Recieves a [New Incoming Connection]()
+* Clients send Connected Pings, and the Server back send Connected Pongs (If stopped we lost connection)
+* Client sends a [Connection Request]()
+* Server responds with a [Connection Request Accepted]()
+* Lastly, Client sends a [New Incoming Connection]()
 
 ---
 
