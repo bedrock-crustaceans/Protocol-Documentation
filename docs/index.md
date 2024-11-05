@@ -29,6 +29,6 @@ features:
     link: /raknet/start
   - title: NetherNet Protocol
     icon: 🌍
-    details: NetherNet Protocol is a new transport layer, mainly used for Xbox Live sessions right now.
+    details: NetherNet Protocol is a new transport layer, used for in-game friend sessions.
     link: /nethernet/start
 ---

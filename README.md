@@ -1,11 +1,18 @@
 # Protocol Wiki
 
-This is the unofficial and community maintained Bedrock Protocol Wiki.
-It contains documentation, tutorials, and general how-to information.
+The Unofficial and Community-Maintained Bedrock Protocol Wiki.
+Contains documentation, tutorials, and general how-to information.
 
 ## Contributing
 
-Contributions are always welcome!
+Spotted an error, have suggestions for improvements, or want to add something entirely new?
+You're always welcome to contribute!
+
+Our wiki is fully open source and maintained by a passionate community of developers and content creators.
+You don’t need to be a member of our organization to contribute—just jump in, and let’s make this resource even better together!
+
+All wiki edits are handled through GitHub using pull requests,
+so you can make changes and suggest edits directly in our GitHub repository.
 
 ## Running Locally
 
