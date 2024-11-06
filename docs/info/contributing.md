@@ -1,8 +1,8 @@
 # Contribute Guide
 
-Welcome to our community!
+Welcome to the community!
 
-Spotted an error, have suggestions for improvements, or want to add something entirely new?
+Spotted an error? Have suggestions for improvements? or want to add something entirely new?
 Here’s your go-to reference for contributing!
 
 ## About the Project
