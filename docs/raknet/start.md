@@ -39,10 +39,10 @@ This is what happens for every client wanting to connect.
 * Lastly, Client sends a [New Incoming Connection]()
 
 > [!NOTE]
-> From here, both Clients and Server regularly send [Connected Ping](Connected Pings) and reply with [Connected Pong](Connected Pongs). (If stopped, we have lost connection)
+> From here, both Clients and Server regularly send [Connected Pings]() and reply with [Connected Pongs](). (If stopped, we have lost connection)
 ---
 
-Now, all data recieved from frame sets are [Game Packet](Game Packets). The data recieved from the game packet is now delt with by the [Bedrock Protocol]() (We will go over it after RakNet).
+Now, all data recieved from frame sets are [Game Packets](). The data recieved from the game packet is now delt with by the [Bedrock Protocol]() (We will go over it after RakNet).
 
 This is the barebones of RakNet, so do not worry if you do not understand yet. Our next part is going to go over the [Data Types]() used by RakNet.
 
