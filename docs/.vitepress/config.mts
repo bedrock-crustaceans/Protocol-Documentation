@@ -7,6 +7,9 @@ export default defineConfig({
     description: "Documentation of the Bedrock Protocol",
     base: "/protocol-wiki/",
 
+    // This should be removed later
+    ignoreDeadLinks: true,
+
     // https://vitepress.dev/reference/default-theme-config
     themeConfig: {
         logo: "/logo.png",
