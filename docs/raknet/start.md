@@ -16,30 +16,31 @@ RakNet is a UDP transfer layer. It is mainly used in Minecraft Bedrock, but is u
 
 ## How does RakNet work?
 
-As mentioned before, RakNet protocol uses UDP. This means that the [Packets]() that are sent, might not always make it. This doesn't matter for things like [Pings]() and [Pongs](), but when dealing with more important information, we want to make sure the clients(players) get that data. To combat this, RakNet uses [Frame Set]() packets. These split data up if its too big and also keep track of what data didn't make it to the client and in that case resend it. This uses [ACK]() & [NACK]() packets which the recipient of a [Frame Set]() packet sends back to either say it got this part of the data or is missing this part of the data.
+As mentioned before, RakNet protocol uses UDP. This means that the [Packets]() that are sent, might not always make it. This doesn't matter for things like [Pings]() and [Pongs](), but when dealing with more important information, we want to make sure the clients(players) get that data. To combat this, RakNet uses [Frame Set]() packets. These split data up if it's too big and also keeps track of what data did or didn't make it to the recipient. If it didn't recieve it, the sender will resend it. This uses [ACK]() & [NACK]() packets which the receiver of a [Frame Set]() packet sends back to either say it got this part of the data or is missing this part of the data.
 
 ## Handshake sequence
 
-This is what happens for every client wanting to connect.
+This is the sequence that an client(s) and the server go through to verify and connect said client(s). (The following will be in the perspective of one client and one sevrer)
 
 ---
 
-* Clients Pings the server, and the Server sends back a Pong
-* A client would then send an [Open Connection Request 1]()
+> [!NOTE]
+> Unconnected client(s) will be sending [Unconnected Pings]() and in responce, recieve [Unconnected Pongs]() from the server. This is how the client recieves the [MOTD]() of the server.
+
+* The client sends an [Open Connection Request 1]()
 * Server responds by sending an [Open Connection Reply 1]()
 * Client sends an [Open Connection Request 2]()
 * Server replys with an [Open Connection Reply 2]()
 
 > [!NOTE]
 > From here, the connection is made and we start sending packets in [Frame Sets]()
+>
+> Along with that, the client now sends [Connected Pings]() and in responce, recieve [Connected Pong]() from the server. No longer sending the unconnected versions of said packets. (If stopped, we have lost connection)
 
-* Clients sends a [Connected Ping](), and the Server replies with a [Connected Pong]()
 * Client sends a [Connection Request]()
 * Server responds with a [Connection Request Accepted]()
-* Lastly, Client sends a [New Incoming Connection]()
+* Lastly, client sends a [New Incoming Connection]()
 
-> [!NOTE]
-> From here, both Clients and Server regularly send [Connected Pings]() and reply with [Connected Pongs](). (If stopped, we have lost connection)
 ---
 
 Now, all data recieved from frame sets are [Game Packets](). The data recieved from the game packet is now delt with by the [Bedrock Protocol]() (We will go over it after RakNet).
