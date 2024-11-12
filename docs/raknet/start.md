@@ -1,4 +1,9 @@
 ---
+mentions:
+    - akashic-records-of-the-abyss
+    - theaddonn
+    - Misledwater79
+    - Tom-Teclador
 prev:
     text: 'Learning MCBE Protocol'
 next:

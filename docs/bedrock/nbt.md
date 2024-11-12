@@ -1,3 +1,7 @@
-# NBTs
+---
+mentions:
+    - akashic-records-of-the-abyss
+    - theaddonn
+---
 
-NBTs in the Bedrock Protocol.
+# NBTs
