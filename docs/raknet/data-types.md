@@ -7,13 +7,13 @@ prev:
     text: 'Learning RakNet'
     link: '/raknet/start'
 next:
-    text: 'Learning Frames'
+    text: 'Frames'
     link: '/raknet/frames'
 ---
 
 # Data Types
 
-Data types used for Minecraft's RakNet implimentation.
+Data types used for Minecraft Bedrock's RakNet implimentation.
 Explains what types are used, their sizes, ranges, and any other info on the type.
 
 ## Basic Data Types

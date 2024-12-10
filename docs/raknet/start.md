@@ -6,8 +6,9 @@ mentions:
     - Tom-Teclador
 prev:
     text: 'Learning MCBE Protocol'
+    link: '/info/learn'
 next:
-    text: 'Learning Data Types'
+    text: 'RakNet Data Types'
     link: '/raknet/data-types'
 ---
 
