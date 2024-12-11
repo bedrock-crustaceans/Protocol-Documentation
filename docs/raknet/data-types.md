@@ -20,25 +20,25 @@ Explains what types are used, their sizes, ranges, and any other info on the typ
 
 The following shows ranges of unsigned types. All types used are encoded as little-endian.
 
-|         | Byte Size | Range              | Notes                    |
-| ------- | --------- | ------------------ | ------------------------ |
-| Boolean | 1         | 0 to 1             | Written as a Byte but only uses top BIT.                                                    |
-| Byte    | 1         | 0 to 255           | 8 BITS.                  |
-| Short   | 2         | 0 to 65,635        |                          |
-| Int24   | 4         | 0 to 16,777,215    | Written as a Int but only uses top 3 Bytes.                                                     |
-| Int     | 4         | 0 to 4,294,967,295 |                          |
-| Long    | 8         | 0 to (2^64)−1      |                          |
+|               | Byte Size | Range              | Notes                                       |
+| ------------- | --------- | ------------------ | ------------------------------------------- |
+| Boolean (u8)  | 1         | 0 to 1             | Written as a Byte but only uses top BIT.    |
+| Byte (u8)     | 1         | 0 to 255           | 8 BITS.                                     |
+| Short (u16)   | 2         | 0 to 65,635        |                                             |
+| Int24 (u24)   | 4         | 0 to 16,777,215    | Written as a Int but only uses top 3 Bytes. |
+| Int (u32)     | 4         | 0 to 4,294,967,295 |                                             |
+| Long (u64)    | 8         | 0 to (2^64)−1      |                                             |
 
 ## Structure Data Types
 
 These are structure types this implementation uses.
 
-|                            | Byte Size | Notes                      |
-| -------------------------- | --------- | -------------------------- |
-| [Magic](#magic)            | 16        | This is also known as RakNet's `OFFLINE_MESSAGE_DATA_ID`.                                   |
-| [Address](#address)        | 7-29      | Size is dependent on IP version. IPv4 is 7 bytes, IPv6 is 29 bytes.                           |
-| String                     | 2-65,535  | Has one unsigned short defining the size, followed by that many bytes.                       |
-| [Frame](/raknet/frames.md) | 3-8,214   | Has one byte defining flags, along with an unsigned short defining size in BITS, followed by that many bits.                                                       |
+|                            | Byte Size | Notes                                                                                                        |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| [Magic](#magic)            | 16        | This is also known as RakNet's `OFFLINE_MESSAGE_DATA_ID`.                                                    |
+| [Address](#address)        | 7-29      | Size is dependent on IP version. IPv4 is 7 bytes, IPv6 is 29 bytes.                                          |
+| String                     | 2-65,535  | Has one unsigned short defining the size, followed by that many bytes.                                       |
+| [Frame](/raknet/frames.md) | 3-8,214   | Has one byte defining flags, along with an unsigned short defining size in BITS, followed by that many bits. |
 
 ## Magic
 
