@@ -20,14 +20,14 @@ Explains what types are used, their sizes, ranges, and any other info on the typ
 
 The following shows ranges of unsigned types. All types used are encoded as little-endian.
 
-|               | Byte Size | Range              | Notes                                       |
-| ------------- | --------- | ------------------ | ------------------------------------------- |
-| Boolean (bool)  | 1         | 0 to 1             | Written as a Byte but only uses top BIT.    |
-| Byte (u8)     | 1         | 0 to 255           | 8 BITS.                                     |
-| Short (u16)   | 2         | 0 to 65,635        |                                             |
-| Int24 (u24)   | 4         | 0 to 16,777,215    | Written as a Int but only uses top 3 Bytes. |
-| Int (u32)     | 4         | 0 to 4,294,967,295 |                                             |
-| Long (u64)    | 8         | 0 to (2^64)−1      |                                             |
+|                 | Byte(u8) Size | Range              | Notes                                       |
+| --------------- | ------------- | ------------------ | ------------------------------------------- |
+| Boolean (bool)  | 1             | 0 to 1             | Written as a Byte but only uses top BIT.    |
+| Byte (u8)       | 1             | 0 to 255           | 8 BITS.                                     |
+| Short (u16)     | 2             | 0 to 65,635        |                                             |
+| Int24 (u24)     | 4             | 0 to 16,777,215    | Written as a Int but only uses top 3 Bytes. |
+| Int (u32)       | 4             | 0 to 4,294,967,295 |                                             |
+| Long (u64)      | 8             | 0 to (2^64)−1      |                                             |
 
 ## Structure Data Types
 
