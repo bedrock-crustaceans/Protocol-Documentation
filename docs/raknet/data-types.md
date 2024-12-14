@@ -22,7 +22,7 @@ The following shows ranges of unsigned types. All types used are encoded as litt
 
 |               | Byte Size | Range              | Notes                                       |
 | ------------- | --------- | ------------------ | ------------------------------------------- |
-| Boolean (u8)  | 1         | 0 to 1             | Written as a Byte but only uses top BIT.    |
+| Boolean (bool)  | 1         | 0 to 1             | Written as a Byte but only uses top BIT.    |
 | Byte (u8)     | 1         | 0 to 255           | 8 BITS.                                     |
 | Short (u16)   | 2         | 0 to 65,635        |                                             |
 | Int24 (u24)   | 4         | 0 to 16,777,215    | Written as a Int but only uses top 3 Bytes. |
