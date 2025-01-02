@@ -51,11 +51,16 @@ In ```ServerNetworkHandler::handle(
     ServerNetworkHandler *this, const struct NetworkIdentifier *pNetworkIdentifier, const struct LoginPacket *pLoginPacket
 )```: 
 ```c++
+// Generate 16 byte random value
+std::string key_random;
+
+Crypto::Random::Random random;
+random.fillData(key_random, 16);
 
 // Fetch the last getIdentityPublicKey from the chain
-IdentityPublicKey = Certificate::getIdentityPublicKey(certificate);
+identityPublicKey = Certificate::getIdentityPublicKey(certificate);
 
-KeyManager keyManager(IdentityPublicKey, Crypto::Asymmetirc::System::EcSecp384r1);
+KeyManager keyManager(identityPublicKey, Crypto::Asymmetirc::System::EcSecp384r1);
 PrivateKeyManager privateKeyMgr;
 
 // Compute shared secret
@@ -111,8 +116,12 @@ void _computeSharedSecretECC(
 
 After that, the ```shared_secret``` will be processed:
 ```c++
-std::string hash_seed = random_nonce + shared_secret;
-std::string encryption_key = Crypto::Hash::hash(Crypto::Hash::HashType::Sha256, hash_seed);
+std::string hash_seed = key_random + shared_secret;
+
+Crypto::Hash hasher;
+std::string encryption_key = hasher.hash(Crypto::Hash::HashType::Sha256, hash_seed);
+
+// Start encryption
 mEncryptedNetworkPeer->enableEncryption(encryption_key);
 
 ```
