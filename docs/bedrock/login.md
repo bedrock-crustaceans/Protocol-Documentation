@@ -93,12 +93,14 @@ the decoded JWT payload part will look like this:
 
 Inside extra data, there is several fields:
 
-| Name | 			Data | 
-| -------------- -| -------- |
-| identity         | Identity value for the player          |
-| displayName      | The name that will be displayed on the server             |
-| XUID  | Client XUID           |
-| titleId    | The title id use to identify player             |
-| sandboxId    | usuage Unknown, default value: ```RETAIL```             |
+## extraData
 
-Overall, the last chain is especially important as the server will get the information about the user from this field and also the encryption initialize key, which will be discuss in encryption
+| Name              |Data                                                       | 
+| ------------------|-----------------------------------------------------------|
+| identity          | Identity value for the player                             |
+| displayName       | The name that will be displayed on the server             |
+| XUID              | Client XUID                                               |
+| titleId           | The title id use to identify player                       |
+| sandboxId         | usuage Unknown, default value: ```RETAIL```               |
+
+Overall, the last chain is especially important as the server will get the information about the user from this field and also the encryption initialize key, which will be discuss in [encryption](encryption.md)
