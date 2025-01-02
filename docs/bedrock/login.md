@@ -87,7 +87,7 @@ the decoded JWT payload part will look like this:
   "iss": "Mojang",
   "exp": 1735432003,
   "iat": 1735345603,
-  "identityPublicKey": "MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEsczVxuDnxpD2EqyqK0HU   XtJbtFq5ntqUpiPb/eM7pelEoSh3ijKZnM2t6LaDMOzXP015p   wsjthhLjnthK3KBj1gM8Vh8p1RRVXb0xSFU2hcWD3TpScBD9Vk8qnPOhH"
+  "identityPublicKey": "MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEsczVxuDnxpD2EqyqK0HUXtJbtFq5ntqUpiPb/eM7pelEoSh3ijKZnM2t6LaDMOzXP015p   wsjthhLjnthK3KBj1gM8Vh8p1RRVXb0xSFU2hcWD3TpScBD9Vk8qnPOhH"
 }
 ```
 
