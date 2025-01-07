@@ -139,4 +139,5 @@
 
 .shiki {
     max-height: 500px;
+    scrollbar-color: #2e2e32 transparent;
 }
