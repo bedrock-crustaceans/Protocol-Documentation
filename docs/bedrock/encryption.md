@@ -45,12 +45,15 @@ Hash Seed = Random bytes + Shared secret
 5. The server will used hashed key output to initialize AES256-GCM, with the Nonce (or Initialize vector) from the first 16 bytes 
 of the hashed key
 
-# Bedrock dedicated server's implementation
+#  Implementation
 
-In ```ServerNetworkHandler::handle(
-    ServerNetworkHandler *this, const struct NetworkIdentifier *pNetworkIdentifier, const struct LoginPacket *pLoginPacket
-)```: 
-```c++
+Bedrock Dedicated Server: 
+In 
+```c++ 
+ServerNetworkHandler::handle(const struct NetworkIdentifier *pNetworkIdentifier, const struct LoginPacket *pLoginPacket)
+```: 
+
+```c++ [C++]
 // Generate 16 byte random value
 std::string key_random;
 
@@ -65,11 +68,10 @@ PrivateKeyManager privateKeyMgr;
 
 // Compute shared secret
 std::string shared_secret = privateKeyMgr.computeSecret(_KeyBuffer, &keyManager);
-```
-The compute secret will then call ```Crypto::Asymmetric::OpenSSLInterface::computeSharedSecret```
-and then the function will call: ```Crypto::Asymmetric::OpenSSLInterface::_computeSharedSecretECC```
-reversed implementation for computing the secret:
-```c++
+
+//The compute secret will then call ```Crypto::Asymmetric::OpenSSLInterface::computeSharedSecret```
+//and then the function will call: ```Crypto::Asymmetric::OpenSSLInterface::_computeSharedSecretECC```
+//reversed implementation for computing the secret:
 void _computeSharedSecretECC(
     std::string& serverPrivateKey,
     std::string& inPubKey,
@@ -112,10 +114,8 @@ void _computeSharedSecretECC(
 
     return;
 }
-```
 
-After that, the ```shared_secret``` will be processed:
-```c++
+//After that, shared_secret will be processed:
 std::string hash_seed = key_random + shared_secret;
 
 Crypto::Hash hasher;
@@ -123,5 +123,4 @@ std::string encryption_key = hasher.hash(Crypto::Hash::HashType::Sha256, hash_se
 
 // Start encryption
 mEncryptedNetworkPeer->enableEncryption(encryption_key);
-
 ```
